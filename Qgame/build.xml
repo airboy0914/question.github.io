@@ -237,6 +237,7 @@
             <sources dir="${basedir}">
                 <file name="out_src/Version.js"/>
                 <file name="out_src/GSEnum.js"/>
+                <file name="out_src/GSFont.js"/>
                 <file name="out_src/JSConfig.js"/>
                 <file name="out_src/JSMacro.js"/>
                 <file name="out_src/ToolBox/GAF/GAFBoot.js"/>
@@ -399,12 +400,14 @@
                 <file name="out_src/Communication/GSSocket.js"/>
                 <file name="out_src/Communication/SocketKeyMap.js"/>
                 <file name="out_src/Data/DataModal.js"/>
-                <file name="out_src/HelloWorldScene/BoardGameFullDialog.js"/>
+                <file name="out_src/HelloWorldScene/BaseLayer.js"/>
                 <file name="out_src/HelloWorldScene/BoardGame2FullDialog.js"/>
                 <file name="out_src/HelloWorldScene/BoardGameCell.js"/>
                 <file name="out_src/HelloWorldScene/ChooseGameDialog.js"/>
                 <file name="out_src/HelloWorldScene/HelloWorldScene.js"/>
                 <file name="out_src/HelloWorldScene/LevelDashFullDialog.js"/>
+                <file name="out_src/HelloWorldScene/RollingDiceLayer.js"/>
+                <file name="out_src/HelloWorldScene/SlotNewbieRewardDialog.js"/>
                 <file name="main.js"/>
 
             </sources>
