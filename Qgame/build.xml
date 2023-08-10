@@ -406,6 +406,8 @@
                 <file name="out_src/HelloWorldScene/ChooseGameDialog.js"/>
                 <file name="out_src/HelloWorldScene/HelloWorldScene.js"/>
                 <file name="out_src/HelloWorldScene/LevelDashFullDialog.js"/>
+                <file name="out_src/HelloWorldScene/LobbyLuckyWheelCommonNode.js"/>
+                <file name="out_src/HelloWorldScene/LobbyLuckyWheelNode.js"/>
                 <file name="out_src/HelloWorldScene/RollingDiceLayer.js"/>
                 <file name="out_src/HelloWorldScene/SlotNewbieRewardDialog.js"/>
                 <file name="main.js"/>
