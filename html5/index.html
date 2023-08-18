@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NewProject</title>
+    <!-- 設定網頁圖示 -->
+    <link rel="icon" type="image/GIF" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/favicon.ico"/>
+
+    <!-- 內建的設定 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi" />
+    <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <!-- force webkit on 360 -->
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <!-- force edge on IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- force full screen on some browser -->
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <!-- force screen orientation on some browser -->
+    <!-- <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-orientation" content="portrait"> -->
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+
+    <!-- 設定iOS Mobile 設定 -->
+    <link rel="apple-touch-icon" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/touch-icon-ipad-retina.png">
+	<link rel="apple-touch-startup-image" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/startup.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<!-- 設定Android Mobile 設定 -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="manifest" href="//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/An_Manifest.json">
+    <script>
+        (function() {
+            var isGamesfoaHost = window.location.hostname.indexOf('www.gamesofa.com') == 0;
+
+            function loadFile(filename) {
+                var fileref = document.createElement('link');
+                fileref.setAttribute('rel', 'manifest');
+                fileref.setAttribute('href', filename);
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+            }
+
+            if (isGamesfoaHost)
+                loadFile("//g.mwsrv.com/relocate_00/p1h5/mobile/Domino/web/An_Manifest.json");
+            else
+                loadFile("web/An_Manifest.json");
+        })();
+    </script>
+
+	<!-- css -->
+    <style type="text/css">
+    html {
+        -ms-touch-action: none;
+        -webkit-text-size-adjust: none;
+        height: 100%;
+    }
+    
+    body,
+    canvas,
+    div {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        cursor: default;
+        color: #888;
+        background-color: #fff;
+        text-align: center;
+        font-family: Helvetica, Verdana, Arial, sans-serif;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    #Cocos2dGameContainer {
+        position: absolute;
+        margin: 0;
+        overflow: hidden;
+        left: 0px;
+        top: 0px;
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+    }
+    
+    canvas {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    
+    #splash_loading {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 65%;
+        height: 50%;
+    }
+    
+    .progress-bar {
+        background-color: #ffc48c;
+        position: absolute;
+        left: 9%;
+        height: 20px;
+        padding: 2px;
+        width: 80%;
+        border-radius: 5px;
+        box-shadow: 0 1px 5px #542400 inset, 0 1px 0 #ffad35;
+    }
+    
+    .progress-bar span {
+        display: block;
+        height: 100%;
+        border-radius: 3px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+        /*transition: width .4s ease-in-out;*/
+        background-color: #ef8018;
+    }
+    
+    .stripes span {
+        background-size: 30px 30px;
+        background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        animation: animate-stripes 1s linear infinite;
+    }
+
+    h3 {
+        padding-top: 20px;
+    }
+
+    .logo {
+        display: inline-block;
+        margin: 0 auto;
+    }
+    
+    .logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    p.rate {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+
+    @keyframes animate-stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 0;
+    }
+}
+
+    iframe {
+        -webkit-overflow-scrolling:touch;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-width: 0px;
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="//g.mwsrv.com/relocate_00/p1h5/mobile/addtohomescreen/addtohomescreen.css">
+
+</head>
+
+<body>
+    <canvas id="gameCanvas" width="1" height="1"></canvas>
+    <div id="splash_loading">
+        <div class="logo"><img src="//g.mwsrv.com/relocate_00/p1h5/mobile/mj/web/splash.png"></div>
+        <div class="progress-bar stripes">
+            <p class="rate">0%</p>
+            <span style="width: 0%"></span>
+        </div>
+        <h3>遊戲讀取中</h3>
+    </div>
+    <script>
+        //增加讀取條的
+        var indexLoadingInterval = null;
+        (function () {
+            var elem = document.getElementById("splash_loading");
+            var progressLabel = elem.getElementsByTagName("p")[0];
+            var progressBar = elem.getElementsByTagName("span")[0];
+            var reachTime = 5000;           //幾毫秒跑玩
+            var totalTime = 0;
+            var eachFrame = 16;
+            var addFunc = function () {
+                totalTime += eachFrame;
+                if (totalTime >= reachTime) {
+                    //要中斷
+                    clearInterval(indexLoadingInterval);
+                    totalTime = reachTime;
+                    indexLoadingInterval = null;
+                }
+                var nowValue = Math.floor((totalTime / reachTime) * 90);
+                progressLabel.innerHTML = nowValue.toString() + "%";
+                progressBar.style.width = progressLabel.innerHTML;
+            };
+
+            indexLoadingInterval = setInterval(addFunc, eachFrame);
+        })();
+    </script>
+
+    <script>
+    (function() {
+        var nav = window.navigator;
+        var ua = nav.userAgent.toLowerCase();
+        var uaResult = /android (\d+(?:\.\d+)+)/i.exec(ua) || /android (\d+(?:\.\d+)+)/i.exec(nav.platform);
+        if (uaResult) {
+            var browserCheck = ua.match(/(qzone|micromessenger|qq)(mobile)?(browser)?\/?([\d.]+)/i);
+            if (browserCheck) {
+                var browserVersion = parseFloat(browserCheck[4] || 0);
+                if (browserVersion < 6.2) {
+                    var gameCanvas = document.getElementById("gameCanvas");
+                    var ctx = gameCanvas.getContext('2d');
+                    ctx.fillStyle = '#000000';
+                    ctx.fillRect(0, 0, 1, 1);
+                }
+            }
+        }
+    })();
+    </script>
+
+    <!-- 加到Home Screen -->
+    <script src="//g.mwsrv.com/relocate_00/p1h5/mobile/addtohomescreen/addtohomescreen.min.js"></script>
+
+    <!-- BEGIN TRACKJS -->
+    <script type="text/javascript">window._trackJs = {
+        token: 'b9b5dc542dbe4e13bc796b054199d2df',
+        application: "mobile_domino",
+        enabled: !(window.location.host.indexOf('localhost') >= 0)
+    };</script>
+    <script type="text/javascript" src="//g.mwsrv.com/p1h5/share/thirdLibrary/tracker.js"></script>
+    <!-- END TRACKJS -->
+
+    <!-- Game Engine -->
+    
+    <script>
+        var relocatePath = '';
+        (function() {
+            var isGamesfoaHost = window.location.hostname.indexOf('www.gamesofa.com') == 0;
+
+            function loadJSFile(filename) {
+                var fileref = document.createElement('script');
+                fileref.setAttribute('type', 'text/javascript');
+                fileref.setAttribute('src', filename);
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+            }
+
+            function loadJSVersion() {
+                var version  = '<?=$versionInfo?>' || '';
+                relocatePath = '//g.mwsrv.com/relocate_' + version + '/p1h5/mobile/mj/' + version + '/';
+                loadJSFile(relocatePath + 'game.min.js');
+            }
+
+            if (isGamesfoaHost)
+                loadJSVersion();
+            else
+                loadJSFile('game.min.js');
+        })();
+    </script>
+    <!-- Game Engine -->
+
+</body>
+
+</html>
