@@ -8,9 +8,9 @@
         <jscomp compilationLevel="simple" 
                 warning="quiet"
                 debug="false" 
-                output="/Users/roger/_3.xUpProject/NewProject_testWolf/proj.web/simulator/html5/game.min.js"
+                output="/Users/roger/_3.xUpProject/NewProject_testWolf/proj.web/publish/html5/game.min.js"
                 languagein="ECMASCRIPT6"
-                sourceMapOutputFile="/Users/roger/_3.xUpProject/NewProject_testWolf/proj.web/simulator/html5/game.min.js.map" sourceMapFormat="V3"
+                
                 >
             <sources dir="/Users/roger/_3.xUpProject/NewProject_testWolf/proj.web/frameworks/cocos2d-html5">
                 <file name="CCBoot.js"/>
