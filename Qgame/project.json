@@ -1,1 +1,1 @@
-{"showFPS": true, "noCache": false, "plugin": {"facebook": {"version": "v2.7", "xfbml": true, "appId": "182350655718713"}}, "frameRate": 60, "project_type": "javascript", "debugMode": 1, "renderMode": 0, "id": "gameCanvas"}
+{"showFPS": false, "noCache": false, "plugin": {"facebook": {"version": "v2.7", "xfbml": true, "appId": "182350655718713"}}, "frameRate": 60, "project_type": "javascript", "debugMode": 0, "renderMode": 0, "id": "gameCanvas"}
